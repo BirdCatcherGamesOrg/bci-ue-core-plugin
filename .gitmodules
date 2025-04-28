@@ -1,0 +1,3 @@
+[submodule "Source/BCICore/Logging"]
+	path = Source/BCICore/Logging
+	url = https://github.com/BirdCatcherGamesOrg/bci-ue-logger-lib
