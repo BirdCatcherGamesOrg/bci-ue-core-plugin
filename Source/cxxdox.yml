@@ -1,0 +1,25 @@
+title: BCI Core
+
+input_directory: ./BCICore
+
+input:
+  - include:
+      - Source/BCICore/Public/**/*.h
+      - Source/BCICore/Private/**/*.h
+    hide_tokens:
+      - UE_LOG
+    compile_options:
+      - "-DDOCUMENTATION"
+      - "-DUCLASS(...)="
+      - "-DGENERATED_BODY()="
+      - "-DUPROPERTY(...)="
+      - "-DUSTRUCT(...)="
+      - "-DUFUNCTION(...)="
+      - "-DDECLARE(...)="
+      - "-DUE_LOG(...)="
+      - "-I/src/Source/BCICore/Stubs"
+      - "-I/src/Source/BCICore/Public"
+      - "-DBCICORE_API="
+
+groups:
+  main: "Main"      
