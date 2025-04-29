@@ -14,7 +14,7 @@ namespace
 
 void FBCICoreEditorModule::StartupModule()
 {
-	//BCILOG_STARTUP_MODULE(LogBCICoreEditor, FBCICoreEditorModule);
+	BCILOG_STARTUP_MODULE(LogBCICoreEditor, FBCICoreEditorModule);
 
 	FPropertyEditorModule& PropertyModule = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
 
@@ -42,7 +42,7 @@ void FBCICoreEditorModule::StartupModule()
 
 void FBCICoreEditorModule::ShutdownModule()
 {
-	//BCILOG_SHUTDOWN_MODULE(LogBCICoreEditor, FBCICoreEditorModule);
+	BCILOG_SHUTDOWN_MODULE(LogBCICoreEditor, FBCICoreEditorModule);
 	FPropertyEditorModule& PropertyModule = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
 	PropertyModule.UnregisterCustomPropertyTypeLayout(FunctionReferenceTypeName);
 }
