@@ -32,8 +32,12 @@ public class BCICore : ModuleRules
 			PublicDependencyModuleNames.Add("spdlog");
 		}
 
+		PublicDefinitions.Add("INNER_LOGGING_CATEGORY=" + INNER_LOGGING_CATEGORY_MACRO);
 		PublicDefinitions.Add("BCICORELOG_FORWARD_TO=" + LOG_FORWARD_MACRO);
+		PublicDefinitions.Add("DLLEXPORT_API=" + LOGGING_DLLEXPORT_MACRO);
 	}
 
+	public static string INNER_LOGGING_CATEGORY_MACRO = "LogBCICore";
+	public static string LOGGING_DLLEXPORT_MACRO = "BCICORE_API";
 	public static string LOG_FORWARD_MACRO = "UE_LOG";
 }
