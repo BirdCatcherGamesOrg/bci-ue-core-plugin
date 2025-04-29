@@ -13,5 +13,13 @@ public:
 
 private:
 
-    TSharedPtr<class IPropertyTypeCustomization> Customization;
+    template
+    <typename T>
+    static TSharedRef<class IPropertyTypeCustomization> CreateCustomization();
 };
+
+template <typename T>
+inline TSharedRef<IPropertyTypeCustomization> FBCICoreEditorModule::CreateCustomization()
+{
+    return MakeShared<T>();
+}

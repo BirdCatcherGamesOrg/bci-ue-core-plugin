@@ -17,26 +17,9 @@ void FBCICoreEditorModule::StartupModule()
 	BCILOG_STARTUP_MODULE(LogBCICoreEditor, FBCICoreEditorModule);
 
 	FPropertyEditorModule& PropertyModule = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
-
-	TSharedRef<FBCICoreEditorModule> SharedThis = AsShared();
 	PropertyModule.RegisterCustomPropertyTypeLayout(
 		FunctionReferenceTypeName,
-		FOnGetPropertyTypeCustomizationInstance::CreateSPLambda(SharedThis, [WeakThis = SharedThis->AsWeak()] ()
-		{
-			TSharedPtr<FBCICoreEditorModule> SharedThis = WeakThis.Pin();
-			if (!SharedThis.IsValid())
-			{
-				BCILOG(LogBCICoreEditor, Error, "Something went wrong with loading the core editor. I'm not as clever as I think I am with smart pointers.");
-				checkNoEntry();
-			}
-				
-			if (!SharedThis->Customization.IsValid())
-			{
-				SharedThis->Customization = MakeShared<FBCICoreEditorFunctionReferenceCustomization>();
-			}
-				
-			return SharedThis->Customization.ToSharedRef();
-		})
+		FOnGetPropertyTypeCustomizationInstance::CreateStatic(&FBCICoreEditorModule::CreateCustomization<FBCICoreEditorFunctionReferenceCustomization>)
 	);
 }
 
