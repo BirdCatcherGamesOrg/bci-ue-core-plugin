@@ -1,4 +1,6 @@
-﻿#pragma once
+﻿// SPDX-License-Identifier: MPL-2.0
+
+#pragma once
 
 #define BCI_SETTINGS_NAMESPACE(SECTION_NAME) \
 do { \
@@ -7,7 +9,7 @@ SectionName = TEXT("\"" STRINGIFY_MACRO(SECTION_NAME) "\""); \
 } while(0)
 
 /**
- * @brief Utilty functions for any BCI plugin developer settings.
+ * @brief Utility functions for any BCI plugin developer settings.
  */
 struct BCICoreDeveloperSettingsUtilities
 {

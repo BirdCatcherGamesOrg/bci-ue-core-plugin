@@ -1,4 +1,6 @@
-﻿#pragma once
+﻿// SPDX-License-Identifier: MPL-2.0
+
+#pragma once
 
 #define BCI_CVAR_NAME(X) *(BCICoreCVarUtilities::MakeCVarName(TEXT(UE_MODULE_NAME), TEXT(X)))
 
